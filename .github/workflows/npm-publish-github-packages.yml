@@ -18,9 +18,6 @@ jobs:
         with:
           node-version: 18.16.0
 
-      - name: Install PNPM
-        run: npm i -g pnpm
-
   publish-gpr:
     needs: build
     runs-on: ubuntu-latest
@@ -33,6 +30,7 @@ jobs:
         with:
           node-version: 18.16.0
           registry-url: https://npm.pkg.github.com/
+      - run: cd ahead
       - run: npm i -g pnpm
       - run: pnpm publish
         env:
